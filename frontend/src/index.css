@@ -7,13 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Sets the background color of the header to a dark grey */
 header {
   background-color: #404040;
+
+/* Adds 1rem of padding to the header */
   padding: 1rem;
 }
 
+/* Sets the color of the link in the header to white and makes it bold */ 
 header a {
   color:#ffffff;
   font-weight: bold;
+
+/* Removes any underline from the link in the header */
   text-decoration: none;
 }
