@@ -1,14 +1,11 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
 
 function ProductPage() {
-    const params = useParams();
-    const {token} = params;
+  const params = useParams();
+  const { token } = params;
 
-
-  return (
-    <div>{token}</div>
-  )
+  return <div>{token}</div>;
 }
 
 export default ProductPage;

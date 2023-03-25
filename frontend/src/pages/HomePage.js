@@ -1,9 +1,19 @@
 import data from "../data";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+
+    const getProducts = async () => {
+      const res = await axios.get("/api/v1/products");
+      setProducts(res.data);
+    };
+    getProducts();
+  }, []);
 
   return (
     <div>
