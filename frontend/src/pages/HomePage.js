@@ -1,7 +1,7 @@
-import data from "../data";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import data from '../data';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -19,7 +19,7 @@ function HomePage() {
     <div>
       <h1>Products</h1>
       <div className="products">
-        {data.products.map((product) => (
+        { products.map((product) => (
           <div key={product.token} className="product">
             <Link to={`/product/${product.token}`}>
               <img alt={product.name} src={product.image}></img>
