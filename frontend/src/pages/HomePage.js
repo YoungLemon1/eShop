@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import data from "../data.js";
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Product from "../Components/Product.js";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -25,13 +28,14 @@ function HomePage() {
 
   useEffect(() => {
     const getProducts = async () => {
-      // dispatch({ type: 'GET_REQUEST' });
-      // try {
-      //   const res = await axios.get('http://localhost:5000/api/v1/products');
-      //   dispatch({ type: 'GET_SUCCESS', payload: res.data });
-      // } catch (err) {
-      //   dispatch({type: 'GET_FAIL', payload: err.message});
-      // }
+      dispatch({ type: "GET_REQUEST" });
+
+      try {
+        const res = await axios.get("http://localhost:5000/api/v1/products");
+        dispatch({ type: "GET_SUCCESS", payload: res.data });
+      } catch (err) {
+        dispatch({ type: "GET_FAIL", payload: err.message });
+      }
     };
 
     getProducts();
@@ -46,23 +50,13 @@ function HomePage() {
         ) : error ? (
           <p>{error}</p>
         ) : (
-          products.map((product) => (
-            <div key={product.token} className="product">
-              <Link to={`/product/${product.token}`}>
-                <img alt={product.name} src={product.image} />
-              </Link>
-              <div className="productDesc">
-                <p>{product.name}</p>
-                <p>
-                  <strong>{product.price}</strong>$
-                </p>
-                <p>{product.description}</p>
-                <Link to={`/product/${product.token}`}>
-                  <button>Add To Cart</button>
-                </Link>
-              </div>
-            </div>
-          ))
+          <Row>
+            {products.map((product) => (
+              <Col lg={3} md={4} sm={6}>
+                <Product prod={product} />
+              </Col>
+            ))}
+          </Row>
         )}
       </div>
     </div>
