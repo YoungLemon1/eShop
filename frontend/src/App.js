@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import ProductPage from './pages/ProductPage';
+import './App.css';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import HomePage from './pages/HomePage.js';
+import ProductPage from './pages/ProductPage.js';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header">
-          <Link to="/">EShop</Link>
+        <header className="header">
+          <Link to="/">Eshop</Link>
         </header>
         <main>
           <Routes>
