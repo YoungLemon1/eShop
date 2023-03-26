@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import seedRouter from './routes/seedRoutes.js';
 
 dotenv.config();
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 const app = express();
 
 app.use('/api/v1/seed', seedRouter)

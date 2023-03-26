@@ -15,7 +15,7 @@ const reducer = (state, action) => {
 
 function HomePage() {
 
-  const [{ loading, error, products}, dispatch] = useReducer(logger(reducer),{ loading: true, error: "", products: []});
+  const [{ loading, error, products}, dispatch] = useReducer(reducer,{ loading: true, error: "", products: []});
 
   useEffect(() => {
     const getProducts = async() => {
