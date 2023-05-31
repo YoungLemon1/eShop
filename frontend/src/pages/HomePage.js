@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import data from "../data.js";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -52,8 +50,8 @@ function HomePage() {
         ) : (
           <Row>
             {products.map((product) => (
-              <Col lg={3} md={4} sm={6}>
-                <Product prod={product} />
+              <Col key={product.token} lg={3} md={4} sm={6}>
+                <Product product={product} />
               </Col>
             ))}
           </Row>

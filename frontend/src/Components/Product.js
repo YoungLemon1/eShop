@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
-function Product({ prod }) {
+function Product({ product }) {
   return (
-    <Card key={prod.token} className="product">
-      <Link to={`/product/${prod.token}`}>
-        <img className="card-img-top" alt={prod.name} src={prod.image} />
+    <Card key={product.token} className="product">
+      <Link to={`/product/${product.token}`}>
+        <img className="card-img-top" alt={product.name} src={product.image} />
       </Link>
 
       <Card.Body>
         <div className="productDesc">
-          <p>{prod.name}</p>
+          <p>{product.name}</p>
           <p>
-            <strong>{prod.price}</strong>$
+            <strong>{product.price}</strong>$
           </p>
-          <p>{prod.description}</p>
-          <Link to={`/product/${prod.token}`}>
+          <p>{product.description}</p>
+          <Link to={`/product/${product.token}`}>
             <button>Add To Cart</button>
           </Link>
         </div>
